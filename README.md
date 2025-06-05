@@ -6,20 +6,20 @@ JSP 기반 웹 애플리케이션에서 HTML <form> 태그를 활용해 사용�
 ---
 
 ## 주요 기능
-- 파일 업로드 및 서버 저장 (중복 파일명 자동 처리)
-- 학번, 이름, 전화번호, 이메일, 성별, 수강 과목(복수 선택), 학년, 소개글 입력
-- MultipartRequest를 통한 파라미터 수집 및 처리
-- DTO 객체(ccc)를 통한 데이터 관리
-- 입력 데이터 테이블 형식 출력 및 업로드 이미지 출력
-- 입력폼으로 다시 돌아가는 링크 제공
+- 파일 업로드 및 서버 저장 (중복 파일명 자동 처리)  
+- 학번, 이름, 전화번호, 이메일, 성별, 수강 과목(복수 선택), 학년, 소개글 입력  
+- MultipartRequest를 통한 파라미터 수집 및 처리  
+- DTO 객체(ccc)를 통한 데이터 관리  
+- 입력 데이터 테이블 형식 출력 및 업로드 이미지 출력  
+- 입력폼으로 다시 돌아가는 링크 제공  
 
 ---
 
 ## 사용 기술
-- Java, JSP
-- Apache Tomcat 서버
-- cos.jar (com.oreilly.servlet 패키지)
-- HTML, CSS
+- Java, JSP  
+- Apache Tomcat 서버  
+- cos.jar (com.oreilly.servlet 패키지)  
+- HTML, CSS  
 
 ---
 
@@ -43,7 +43,7 @@ JSP 기반 웹 애플리케이션에서 HTML <form> 태그를 활용해 사용�
 ## 주요 코드 예시
 
 ### form.jsp (입력 폼 일부)
-
+'''jsp
 <form action="result.jsp" method="post" enctype="multipart/form-data">
     파일 : <input type="file" name="filename"><br>
     학번: <input type="text" name="studentId"><br>
@@ -60,9 +60,9 @@ JSP 기반 웹 애플리케이션에서 HTML <form> 태그를 활용해 사용�
     <input type="submit" value="제출">
 </form>
 
-
 ---
 
+### result.jsp (MultipartRequest 사용 부분)
 String uploadPath = application.getRealPath("/upload");
 MultipartRequest multi = new MultipartRequest(request, uploadPath, 5 * 1024 * 1024, "utf-8", new DefaultFileRenamePolicy());
 
@@ -81,8 +81,8 @@ student1.setStudentId(studentId);
 
 
 ## 배운점
-JSP에서 MultipartRequest를 활용한 파일 업로드 처리 경험
-다양한 폼 데이터(텍스트, 체크박스, 라디오 버튼 등) 처리 방법 습득
-DTO 객체 활용으로 데이터 관리 효율성 향상
-사용자 친화적인 결과 화면 출력 구현
+JSP에서 MultipartRequest를 활용한 파일 업로드 처리 경험  
+다양한 폼 데이터(텍스트, 체크박스, 라디오 버튼 등) 처리 방법 습득  
+DTO 객체 활용으로 데이터 관리 효율성 향상  
+사용자 친화적인 결과 화면 출력 구현  
 
