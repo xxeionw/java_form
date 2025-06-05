@@ -1,4 +1,4 @@
-# 🖥️ Java Web Programming - Form Tag 데이터 처리 프로젝트
+# 🖥️Form Tag 데이터 처리 프로젝트
 
 
 ## 📋 프로젝트 개요
