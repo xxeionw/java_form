@@ -1,0 +1,9 @@
+INDEX VERSION 1.134
+C:\Users\dlekg\JspHomework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2782079713.index
+\JspHomework\src\main\java
+C:\Users\dlekg\JspHomework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\214763688.index
+\formpro\src\main\java
+C:\Users\dlekg\JspHomework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2343230390.index
+\JspHomework\src\main\java
+C:\Users\dlekg\JspHomework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3136385949.index
+\JspHomework\src\main\java

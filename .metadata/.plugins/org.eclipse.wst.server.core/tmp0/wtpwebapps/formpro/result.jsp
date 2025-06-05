@@ -1,0 +1,88 @@
+<%@ page  contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import= "aaa.bbb.ccc" %>
+<%@ page import = "com.oreilly.servlet.*" %>
+<%@ page import = "com.oreilly.servlet.multipart.*" %>
+<%@ page import = "java.util.*" %>
+<%@ page import = "java.io.*" %>
+
+
+
+<!DOCTYPE html>
+<%
+	String uploadPath = application.getRealPath("/upload");
+	MultipartRequest multi = new MultipartRequest(request,uploadPath, 5 * 1024 * 1024,
+			"utf-8", new DefaultFileRenamePolicy());
+
+    request.setCharacterEncoding("UTF-8");
+    
+    String filename = multi.getFilesystemName("filename");
+    
+
+    // 사용자 입력값 받기
+    String studentId = multi.getParameter("studentId");
+    String name = multi.getParameter("name");
+    String phone1 = multi.getParameter("phone1");
+    String phone2 = multi.getParameter("phone2");
+    String phone3 = multi.getParameter("phone3");
+    String fullphone = phone1+"-"+ phone2+"-"+phone3;
+    String grade = multi.getParameter("grade");
+    String sex = multi.getParameter("sex");
+    String email = multi.getParameter("email");
+    String emailaddress = multi.getParameter("emailaddress");
+    String fullemail = email+"@"+emailaddress;
+	String comment = multi.getParameter("comment");
+	String[] subject = multi.getParameterValues("subject");
+    // DTO 객체 생성 및 값 설정
+    ccc student1 = new ccc();
+    student1.setStudentId(studentId);
+    student1.setName(name);
+    student1.setPhone(fullphone);
+    student1.setSex(sex);
+    student1.setEmail(fullemail);
+    student1.setGrade(grade);
+    student1.setComment(comment);
+    student1.setSubject(subject);
+   
+%>
+
+<html>
+<head><title>결과</title></head>
+<body>
+    <h2>입력된 사용자 정보</h2>
+    <table border = '1' cellpadding="10">
+    <tr>
+    	<td>
+    		<% if(filename != null){ %>
+    		<img src = "upload/<%=filename%>" alt= "업로드한 사진" width="100"/>
+    		<%}else {%>
+    		<p>업로드된 사진 없음</p>
+    		<% } %>
+ 		</td>
+   		<td>
+    		<h2>학번: <%= student1.getStudentId() %></h2>
+    		<h2>이름: <%= student1.getName() %></h2>
+    	</td>
+  	</tr>
+    <tr>
+    <td colspan="2">
+    <p>전화번호: <%= student1.getPhone() %></p>
+    <p>성별: <%= student1.getSex() == null ? "입력 안 함" : student1.getSex() %></p>
+    <p>학년: <%= student1.getGrade() %></p>
+    <p>수강과목:
+    <%
+    	if (subject != null) {
+    		for (int i = 0; i < subject.length; i++) {
+        	out.print(subject[i] + " ");
+   	 		}
+		} else {
+    		out.print("선택한 과목이 없습니다.");
+		}	
+	%>
+	</p>
+    <p>이메일: <%=student1.getEmail() %></p>
+    <p>소개: <%= student1.getComment() %></p>
+	<p> <a href="./form.jsp">다시 입력하기</a></p>
+	</td>
+	</tr>
+	</table>
+</body>
+</html>

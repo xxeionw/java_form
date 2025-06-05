@@ -1,0 +1,75 @@
+<%@ page  contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import= "aaa.bbb.ccc" %>
+<%@ page import = "com.oreilly.servlet.*" %>
+<%@ page import = "com.oreilly.servlet.multipart.*" %>
+<%@ page import = "java.util.*" %>
+<%@ page import = "java.io.*" %>
+
+
+
+<!DOCTYPE html>
+<%
+	String uploadPath = application.getRealPath("/upload");
+	MultipartRequest multi = new MultipartRequest(request,uploadPath, 5 * 1024 * 1024,
+			"utf-8", new DefaultFileRenamePolicy());
+
+    request.setCharacterEncoding("UTF-8");
+    
+    String filename = multi.getFilesystemName("filename");
+    
+
+    // 사용자 입력값 받기
+    String studentId = multi.getParameter("studentId");
+    String name = multi.getParameter("name");
+    String phone1 = multi.getParameter("phone1");
+    String phone2 = multi.getParameter("phone2");
+    String phone3 = multi.getParameter("phone3");
+    String fullphone = phone1+"-"+ phone2+"-"+phone3;
+    String[] subject = multi.getParameterValues("subject");
+    String sex = multi.getParameter("sex");
+	String comment = multi.getParameter("comment");
+    // DTO 객체 생성 및 값 설정
+    ccc student1 = new ccc();
+    student1.setStudentId(studentId);
+    student1.setName(name);
+    student1.setPhone(fullphone);
+    student1.setSex(sex);
+    
+    student1.setSubject(subject);
+    student1.setComment(comment);
+    
+    
+%>
+<html>
+<head><title>결과</title></head>
+<body>
+    <h2>입력된 정보</h2>
+    <table border = '1' cellpadding="10">
+    <tr>
+    	<td>
+    	<% if(filename != null){ %>
+    		<img src = "upload/<%=filename%>" alt= "업로드한 사진" width="150"/>
+    	<%}else {%>
+    	<p>업로드된 사진 없음</p>
+    	<% } %>
+    	</td>
+    </tr>
+   	<td>
+    <p>학번: <%= student1.getStudentId() %></p>
+    <p>이름: <%= student1.getName() %></p>
+    <p>전화번호: <%= student1.getPhone() %></p>
+    <p>성별: <%= student1.getSex() %></p>
+    <p>수강 과목: 
+    <%
+    if (subject != null) {
+        for (int i = 0; i < subject.length; i++) {
+            out.println(""+subject[i]);
+            }
+        }
+    %>
+    <p>소개: <%= student1.getComment() %></p>
+	<p> <a href="./form.jsp">다시 입력하기</a>
+	</td>
+	</tr>
+	</table>
+
+</html>

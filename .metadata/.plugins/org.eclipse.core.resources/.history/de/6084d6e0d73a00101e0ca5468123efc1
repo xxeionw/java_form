@@ -1,0 +1,55 @@
+package aaa.bbb;
+
+public class ccc {
+	private String studentId;
+    private String name;
+    private String phone;
+    private String subject[];
+    private String comment;
+    private String sex;
+
+    public String getStudentId() {
+        return studentId;
+    }
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
+    }
+
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getSex() {
+    	return sex;
+    }
+    public void setSex(String sex) {
+    	this.sex = sex;
+    }
+    
+    
+    public String[] getSubject() {
+        return subject;
+    }
+    public void setSubject(String[] subject) {
+        this.subject = subject;
+    }
+    
+    public String getComment() {
+    	return comment;
+    }
+    public void setComment(String comment) {
+    	this.comment = comment;
+    }
+    
+    
+}

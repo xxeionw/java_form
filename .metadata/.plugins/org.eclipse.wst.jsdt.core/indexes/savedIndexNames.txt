@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+C:\Users\dlekg\JspHomework\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+722296654.index
+2507489405.index
+3241852691.index
+2831445548.index
+2872127137.index
+2843602750.index

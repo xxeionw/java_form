@@ -1,0 +1,57 @@
+<%@ page  contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import= "aaa.bbb.ccc" %>
+<%@ page import = "com.oreilly.servlet.*" %>
+<%@ page import = "com.oreilly.servlet.multipart.*" %>
+<%@ page import = "java.util.*" %>
+<%@ page import = "java.io.*" %>
+
+
+
+<!DOCTYPE html>
+<%
+	MultipartRequest multi = new MultipartRequest(request, "C:\\upload", 5 * 1024 * 1024,
+			"utf-8", new DefaultFileRenamePolicy());
+
+    request.setCharacterEncoding("UTF-8");
+
+    // 사용자 입력값 받기
+    String studentId = request.getParameter("studentId");
+    String name = request.getParameter("name");
+    String phone1 = request.getParameter("phone1");
+    String phone2 = request.getParameter("phone2");
+    String phone3 = request.getParameter("phone3");
+    String fullphone = phone1+"-"+ phone2+"-"+phone3;
+    String[] subject = request.getParameterValues("subject");
+    String sex = request.getParameter("sex");
+	String comment = request.getParameter("comment");
+    // DTO 객체 생성 및 값 설정
+    ccc student1 = new ccc();
+    student1.setStudentId(studentId);
+    student1.setName(name);
+    student1.setPhone(fullphone);
+    student1.setSex(sex);
+    
+    student1.setSubject(subject);
+    student1.setComment(comment);
+    
+    
+%>
+<html>
+<head><title>결과</title></head>
+<body>
+    <h2>입력된 정보</h2>
+    <p>학번: <%= student1.getStudentId() %></p>
+    <p>이름: <%= student1.getName() %></p>
+    <p>전화번호: <%= student1.getPhone() %></p>
+    <p>성별: <%= student1.getSex() %></p>
+    <p>수강 과목: 
+    <%
+    if (subject != null) {
+        for (int i = 0; i < subject.length; i++) {
+            out.println(""+subject[i]);
+            }
+        }
+    %>
+    <p>소개: <%= student1.getComment() %></p>
+	<p> <a href="./form.jsp">사람 추가하기</a>
+</body>
+</html>
