@@ -82,9 +82,14 @@ student1.setStudentId(studentId);
 
 
 ## 🖼️예시사진
-![1](https://github.com/user-attachments/assets/64f24ac5-cc28-4091-8d41-ed8c34dbcd78)
-![2](https://github.com/user-attachments/assets/0fd06b2d-8967-422b-9067-b7de78f64719)
 
+
+<table>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/64f24ac5-cc28-4091-8d41-ed8c34dbcd78" width="200"/></td>
+    <td><img src="https://github.com/user-attachments/assets/0fd06b2d-8967-422b-9067-b7de78f64719" width="200"/></td>
+  </tr>
+</table>
 
 ---
 
